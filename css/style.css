@@ -727,6 +727,27 @@ footer p {
   .section-divider {
     margin: 18px auto 0 auto;
   }
+  .about-content, .about-img, .about-text {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+  .about-img img {
+    max-width: 90vw !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto 12px auto;
+  }
+  .about-text {
+    padding: 0 2vw !important;
+    text-align: center !important;
+    font-size: 0.95rem;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
 }
 
 /* Particles Background */
