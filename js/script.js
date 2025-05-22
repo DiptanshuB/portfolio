@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
             particlesJS("particles-js", {
                 "particles": {
                     "number": {
-                        "value": 100,
+                        "value": 180,
                         "density": {
                             "enable": true,
                             "value_area": 800
@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     },
                     "size": {
-                        "value": 3,
+                        "value": 5,
                         "random": true,
                         "anim": {
                             "enable": true,
@@ -385,4 +385,60 @@ document.addEventListener('DOMContentLoaded', function() {
             console.warn("particles.js not loaded");
         }
     }
+
+    // Slide-in animation on scroll for all .slide-in elements
+    function handleSlideInOnScroll() {
+        const slideEls = document.querySelectorAll('.slide-in');
+        const triggerBottom = window.innerHeight * 0.85;
+        slideEls.forEach(el => {
+            const boxTop = el.getBoundingClientRect().top;
+            if (boxTop < triggerBottom) {
+                el.classList.add('visible');
+            } else {
+                el.classList.remove('visible');
+            }
+        });
+    }
+    window.addEventListener('scroll', handleSlideInOnScroll);
+    setTimeout(handleSlideInOnScroll, 400);
+
+    // Sidebar Navbar toggle on scroll/section
+    function toggleSidebarNavbar() {
+        const homeSection = document.getElementById('home');
+        const sidebar = document.getElementById('sidebarNavbar');
+        const mainNavbar = document.querySelector('.navbar');
+        const scrollY = window.scrollY || window.pageYOffset;
+        const homeBottom = homeSection.offsetTop + homeSection.offsetHeight - 80;
+        if (scrollY > homeBottom - 10) {
+            sidebar.classList.add('active');
+            mainNavbar.classList.add('hide-navbar');
+        } else {
+            sidebar.classList.remove('active');
+            mainNavbar.classList.remove('hide-navbar');
+        }
+    }
+    window.addEventListener('scroll', toggleSidebarNavbar);
+    setTimeout(toggleSidebarNavbar, 400);
+
+    // Update active nav link for both navbars
+    function updateActiveNavLinks() {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        let currentId = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.clientHeight;
+            if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                currentId = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentId}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+    window.addEventListener('scroll', updateActiveNavLinks);
+    setTimeout(updateActiveNavLinks, 400);
 }); 
