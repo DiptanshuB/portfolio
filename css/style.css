@@ -279,7 +279,17 @@ nav ul li a:hover {
     backdrop-filter: blur(10px);
     position: relative;
 }
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column; /* Stack text and image on small screens */
+        text-align: center; /* Center text for mobile */
+    }
 
+    .about-img,
+    .about-text {
+        margin: 10px auto;
+    }
+}
 .about::before {
     content: '';
     position: absolute;
@@ -292,22 +302,27 @@ nav ul li a:hover {
 }
 
 .about-content {
-    display: flex;
+     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
     gap: 30px;
+    flex-direction: row-reverse; /* Text on the left, image on the right */
+    padding: 20px;
 }
 
 .about-img {
     flex: 0 0 300px;
     max-width: 300px;
-    margin: 20px; 
+    margin: 0 auto;
     padding: 20px;
+    text-align: center;
 }
 
 .about-text {
-    flex: 1 1 0;
-    margin: 20px; 
+    flex: 1;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .about-img img {
