@@ -709,6 +709,7 @@ footer p {
     font-size: 1.1rem !important;
   }
   .sidebar-navbar {
+    height: 100vh !important;
     max-height: 100vh !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
@@ -716,8 +717,9 @@ footer p {
     left: 0 !important;
     right: auto !important;
     top: 0 !important;
-    padding: 8px 0 !important;
+    padding: 8px 0 32px 0 !important;
     z-index: 1002;
+    box-sizing: border-box !important;
   }
   .sidebar-navbar .navbar-nav {
     flex-direction: column !important;
@@ -726,9 +728,12 @@ footer p {
     width: 100vw !important;
     gap: 0 !important;
     padding-left: 8px !important;
+    height: 100vh !important;
     max-height: 100vh !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    padding-bottom: 32px !important;
   }
   .sidebar-navbar .nav-link {
     text-align: left !important;
@@ -739,6 +744,7 @@ footer p {
     white-space: normal !important;
     word-break: break-word !important;
     overflow-wrap: break-word !important;
+    box-sizing: border-box !important;
   }
   .navbar.hide-navbar {
     display: none !important;
